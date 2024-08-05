@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color:  #f0f0f0;
+        }
+
+        header {
+            background: linear-gradient(to right, #05344b, #feb47b);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #feb47b;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+
+        #introduction p, #about p, #skills p, #portfolio p, #contact p {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        #personal-info {
+            text-align: center;
+        }
+
+        #personal-info img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid #ff7e5f;
+            margin-bottom: 20px;
+        }
+
+        #personal-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        #personal-info ul li {
+            font-size: 1.1em;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        #personal-info ul li strong {
+            color: #ff7e5f;
+            font-weight: 600;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skills-list div {
+            text-align: center;
+            width: 100px;
+            transition: transform 0.3s;
+        }
+
+        .skills-list div:hover {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #feb47b;
+        }
+
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background: #ff7e5f;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background: #feb47b;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .skills-list div {
+                width: 80px;
+            }
+
+            footer {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 40px 10px;
+            }
+
+            .skills-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .skills-list li {
+                display: inline-block;
+                margin: 0 10px;
+            }
+
+            .social-icons a {
+                margin: 0 5px;
+                font-size: 1.2em;
+            }
+
+            #back-to-top {
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#personal-info">Personal Info</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="introduction">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>Hello! I'm Deepesh Paliwal , a passionate web developer with a love for creating dynamic and responsive websites. Welcome to my portfolio where you can explore my skills, projects, and get in touch with me.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I have been in the web development industry for over 2 years, specializing in both front-end and back-end development. My goal is to deliver high-quality websites that are not only visually appealing but also functionally robust.</p>
+        </div>
+    </section>
+
+    <section id="personal-info">
+        <div class="container">
+            <h2>Personal Information</h2>
+            <img src="./web.png">
+            <ul>
+                <li><strong>Name:</strong> Deepesh Paliwal</li>
+                <li><strong>Age:</strong> 22</li>
+                <li><strong>Location:</strong> Indore,India</li>
+                <li><strong>Occupation:</strong> Web Developer</li>
+                <li><strong>Interests:</strong> Coding, Music, Traveling, Sports</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Django</li>
+            <li>MySql</li>
+            <li>Python</li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="portfolio-item">
+                <img src="./fake.png" alt="Project 1">
+                <h3>Indian Fake Currency Detector</h3>
+                <p>An Indian fake currency detector is a specialized device or tool designed to identify counterfeit banknotes in circulation. </p><br>
+                <p>Keywords:  Fake  Currency,  Image  Processing,  Grayscale  Conversion,  Segmentation,  pre-processing. </p>
+            </div>
+            <div class="portfolio-item">
+                <img src="./stroke.jpg" alt="Project 2">
+                <h3>Stroke Prediction</h3>
+                <p>Stroke prediction involves assessing an individual's risk of experiencing a stroke through various factors such as medical history, lifestyle, and specific health metrics like blood pressure, cholesterol levels, and diabetes.</p><br>
+                <p>Keywords: stroke, risk prediction, machine learning, data analysis</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 John Doe. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://twitter.com/johndoe"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/johndoe"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/johndoe"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <button id="back-to-top" onclick="scrollToTop()">&#8593;</button>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
